@@ -1,14 +1,26 @@
 <snippet>
 	<content><![CDATA[
-from flask import Flask 
+# -*- coding: utf-8 -*-
+# Biblioteca
+from flask import Flask
+
+# Variables
 app = Flask(__name__)
 
-@app.route('/')
-def index():
-	return "${1:Hello World}"
+# Settings
+app.config['DEBUG'] = True
 
-if __name__=='__main__':
-	app.run(debug=True)
+
+# Views
+@app.route("/", methods=('GET', 'POST'))
+def index():
+    return "${1:Hello World}"
+
+
+# Run
+if __name__ == "__main__":
+    app.run()
+
 ]]></content>
 	<tabTrigger>Flask</tabTrigger>
 	<scope>source.python</scope>
